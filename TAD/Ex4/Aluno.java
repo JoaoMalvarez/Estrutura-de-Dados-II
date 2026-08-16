@@ -49,4 +49,22 @@ public class Aluno<T> implements ListaNota<T> {
         novaNota.setProximo(this.getProximo());
         this.setProximo(novaNota);        
     }
+
+    public void calcularMedia() {
+        // calcular  e retornar a média aritmética das notas do aluno
+        ListaNota<T> atual = this.getProximo();
+        double soma = 0;
+        int count = 0;
+        while (atual != null) {
+            soma += (double) atual.getNota();
+            count++;
+            atual = atual.getProximo();
+        }
+        if (count > 0) {
+            double media = soma / count;
+            System.out.println("Média do aluno " + this.nome + ": " + media);
+        } else {
+            System.out.println("O aluno " + this.nome + " não possui notas.");
+        }
+    }
 }
