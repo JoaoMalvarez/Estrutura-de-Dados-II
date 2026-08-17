@@ -15,11 +15,11 @@ public class Pessoa {
         this.identificador = identificador;
     }
 
-    public int getNome() {
+    public String getNome() {
         return nome;
     }
 
-    public void setNome(Sting nome) {
+    public void setNome(String nome) {
         this.nome = nome;
     }
 }

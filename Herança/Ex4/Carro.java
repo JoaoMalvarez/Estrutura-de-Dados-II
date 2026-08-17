@@ -2,9 +2,8 @@ public class Carro extends Veiculo {
     public String cor;
     public String modelo;
 
-    public Carro(Veiculo ano, Veiculo preco, Motor motor, String cor, String modelo) {
-        Veiculo(ano, preco);
-        Motor(motor);
+    public Carro(int ano, float preco, Motor motor, String cor, String modelo) {
+        super(ano, preco, motor);
         this.cor = cor;
         this.modelo = modelo;
     }
@@ -27,7 +26,6 @@ public class Carro extends Veiculo {
 
     public void exibirDadosCarro() {
         exibirDados();
-        exibirDadosMotor();
         System.out.println("Cor: " + cor);
         System.out.println("Modelo: " + modelo);
     }

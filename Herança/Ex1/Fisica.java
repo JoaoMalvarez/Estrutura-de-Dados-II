@@ -3,7 +3,7 @@ public class Fisica extends Pessoa {
     public String cpf;
 
     public Fisica (int identificador, String nome, String rg, String cpf) {
-        Pessoa(identificador, nome);
+        super(identificador, nome);
         this.rg = rg;
         this.cpf = cpf;
     }

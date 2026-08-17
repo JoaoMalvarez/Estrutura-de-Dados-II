@@ -1,13 +1,12 @@
 public class Caminhao extends Veiculo {
     public float comprimento;
 
-    public Carro(Veiculo ano, Veiculo preco, Motor motor, float comprimento) {
-        Veiculo(ano, preco);
-        Motor(motor);
+    public Caminhao(int ano, float preco, Motor motor, float comprimento) {
+        super(ano, preco, motor);
         this.comprimento = comprimento;
     }
 
-    public String getComprimento() {
+    public float getComprimento() {
         return comprimento;
     }
 
@@ -18,7 +17,6 @@ public class Caminhao extends Veiculo {
 
     public void exibirDadosCaminhao() {
         exibirDados();
-        exibirDadosMotor();
         System.out.println("Comprimento: " + comprimento);
     }
 }

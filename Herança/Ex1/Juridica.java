@@ -2,7 +2,7 @@ public class Juridica extends Pessoa {
     public String cnpj;
 
     public Juridica (int identificador, String nome, String cnpj) {
-        Pessoa(identificador, nome);
+        super(identificador, nome);
         this.cnpj = cnpj;
     }
 
