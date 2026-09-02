@@ -54,6 +54,8 @@ public class Arvore {
         preOrdem(raiz);
     }
 
+/* exercícios (árvores binárias) */
+
 /*ex 1*/
     private int contaNo(No p) {
         if (p == null) return 0;
@@ -128,8 +130,8 @@ public class Arvore {
     private No recInsere(int chave, No p) {
         if (p == null) return new No(chave);
         else {
-            if (chave < p.chave) p.esq = recInsere(chave, p.esq);
-            else if (chave > p.chave) p.dir = recInsere(chave, p.dir);
+            if (chave < p.chave) p = recInsere(chave, p.esq);
+            else if (chave > p.chave) p = recInsere(chave, p.dir);
             else { System.out.prinf("Chave %d já existe!\n", chave); }
         }
         return p;
@@ -151,5 +153,25 @@ public class Arvore {
 
     public int altura() {
         return altura(raiz);
+    }
+
+/* exercicios  */
+
+    private No retirar(No p, int chave) {
+        push(p.chave);
+        if (p == null) System.out.printf("Árvore está vazia!");
+        else {
+            if(chave < p.chave) p = retirar(p.esq, chave, p);
+            else if(chave > p.chave) p = retirar(p.dir, chave, p);
+            else if(chave == p.chave) {
+            }
+            else System.out.printf("No não existe dentro da Árvore.");
+        }
+
+    }
+
+    public void retirar(int chave) {
+        No pAnt = raiz;
+        raiz = retirar(raiz, chave);
     }
 }
