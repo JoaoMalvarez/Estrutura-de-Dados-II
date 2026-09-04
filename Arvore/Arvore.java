@@ -155,23 +155,94 @@ public class Arvore {
         return altura(raiz);
     }
 
-/* exercicios  */
+/* extras */ 
 
+    private No menorNo(No p) {
+        // menor valor da subárvore = mais à esquerda possível
+        while (p.esq != null) p = p.esq;
+        return p;
+    }
+
+    private No maiorNo(No p) {
+        // maior valor da subárvore = mais à direita possível
+        while (p.dir != null) p = p.dir;
+        return p;
+    }
+
+/* exercicios */
+
+/* remoção recursiva */
     private No retirar(No p, int chave) {
-        push(p.chave);
         if (p == null) System.out.printf("Árvore está vazia!");
         else {
-            if(chave < p.chave) p = retirar(p.esq, chave, p);
-            else if(chave > p.chave) p = retirar(p.dir, chave, p);
-            else if(chave == p.chave) {
+            if(chave < p.chave) p.esq = retirar(p.esq, chave, p);
+            else if(chave > p.chave) p.dir = retirar(p.dir, chave, p);
+            else {
+                if (p.getDir() == null && p.getEsq() == null) return null;
+                else if (p.getDir() == null) return p.esq;
+                else if (p.getEsq() == null) return p.dir;
+                else {
+                    No sucessor = menorNo(p.dir); // menor chave à direita = o numero mais proximo dele para cima
+                    p.chave = sucessor.chave;
+                    p.dir = retirar(p.dir, sucessor.chave); // remove o sucessor da direita para nao repetir
+                }
             }
-            else System.out.printf("No não existe dentro da Árvore.");
+            return p;
         }
 
     }
 
-    public void retirar(int chave) {
+    public void remoçao(int chave) {
         No pAnt = raiz;
         raiz = retirar(raiz, chave);
+    }
+
+/* remoção iterativa */
+
+    public void remocaoIterativa(int chave) {
+        No pai = null;
+        No p = raiz;
+        while (p != null && p.chave != chave) {
+            pai = p;
+            if (chave < p.chave) p = p.esq;
+            else p = p.dir;
+        }
+        if (p == null) {
+            System.out.printf("Chave %d não existe!\n", chave);
+            return;
+        }
+        if (p.esq != null && p.dir != null) {
+            No paiSucessor = p;
+            No sucessor = p.dir;
+            while (sucessor.esq != null) {
+                paiSucessor = sucessor;
+                sucessor = sucessor.esq;
+            }
+            p.chave = sucessor.chave; 
+            p = sucessor;
+            pai = paiSucessor;
+        }
+        No filho = (p.esq != null) ? p.esq : p.dir;
+        if (pai == null) {
+            raiz = filho; 
+        } else if (pai.esq == p) {
+            pai.esq = filho;
+        } else {
+            pai.dir = filho;
+        }
+    }
+
+/* Implementar o diagrama de barras, para mostrar os elementos da árvore binária de busca */
+
+    private void imprimeBarra(No p, int nivel) {
+        if (p == null) return;
+        imprimeBarra(p.dir, nivel + 1); // imprime direita primeiro (fica em cima)
+        for (int i = 0; i < nivel; i++) System.out.print("    ");
+        System.out.println(p.chave);
+        imprimeBarra(p.esq, nivel + 1);
+    }
+
+    public void imprimeBarra() {
+        imprimeBarra(raiz, 0);
     }
 }
