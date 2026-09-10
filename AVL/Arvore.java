@@ -1,98 +1,99 @@
 public class Arvore {
     private No raiz;
-    private int he;
-    private int hd;
 
     public Arvore() {
         this.raiz = null;
-        this.he = 0;
-        this.hd = 0;
     }
 
     public int altura() {
-        if (he > hd) return he + 1;
-        else if (hd > he) return hd + 1;
-        else return he + 1;
+        return altura(raiz);
+    }
+
+    private int altura(No p) {
+        if (p == null) return -1;
+        int hesq = altura(p.esq);
+        int hdir = altura(p.dir);
+        return (hesq > hdir) ? hesq + 1 : hdir + 1;
     }
 
     public No insere(No p, int valor) {
-        if (p == null) p = new No(valor);
-        else if (valor < p.dado) { // esquerda
+        if (p == null) {
+            return new No(valor);
+        }
+        
+        if (valor < p.dado) {
             p.esq = insere(p.esq, valor);
-            switch(p.bal) {
-                case 1: p.bal = 0;  break;
-                case 2: p.bal = -1; break;
-                case -1: p = caso1(p);  break;
+            p.bal = altura(p.dir) - altura(p.esq);
+            if (p.bal == -2) {
+                p = caso1(p);
+            }
+        } else if (valor > p.dado) {
+            p.dir = insere(p.dir, valor);
+            p.bal = altura(p.dir) - altura(p.esq);
+            if (p.bal == 2) {
+                p = caso2(p);
             }
         }
-        else if (valor > p.dado) {
-            p.dir = insere(p.esq, valor);
-            switch(p.bal) {
-                case 1: p.bal = 0;  break;
-                case 2: p.bal = -1; break;
-                case -1: p = caso2(p);  break;
-            }
-        }
+        
+        p.bal = altura(p.dir) - altura(p.esq);
         return p;
     }
 
     public No caso1(No p) {
-        No u, v;
-        u = p.esq;
-
-        //caso 1.1
-        if(u.bal == -1) {
-            p.esq = u.dir;
-            u.dir = p;
-            p.bal = 0; // ajustar o balanco de p
-            p = u;
-        }
-        // caso 1.2 
-        else {
-            v = u.dir;
+        No u = p.esq;
+        
+        // caso 1.2 (Esquerda-Direita / Rotação Dupla)
+        if (p.esq != null && p.esq.bal == 1) {
+            No v = u.dir;
             u.dir = v.esq;
             p.esq = v.dir;
             v.esq = u;
             v.dir = p;
-
-            if (v.bal == -1) p.bal = 1;
-            else p.bal = 0;
-            if (v.bal == 1) u.bal = -1;
-            else u.bal = 0;
+            
+            u.bal = altura(u.dir) - altura(u.esq);
+            p.bal = altura(p.dir) - altura(p.esq);
+            v.bal = altura(v.dir) - altura(v.esq);
             p = v;
+        } 
+        // caso 1.1 (Esquerda-Esquerda / Rotação Simples)
+        else {
+            p.esq = u.dir;
+            u.dir = p;
+            
+            p.bal = altura(p.dir) - altura(p.esq);
+            u.bal = altura(u.dir) - altura(u.esq);
+            p = u;
         }
-        p.bal = 0;
+        
         return p;
     }
 
     public No caso2(No p) {
-        No z, y;
-        z = p.dir;
-
-        //caso 2.1
-        if (z.bal == 1) {
-            p.dir = z.esq;
-            z.esq = p;
-            p.bal = 0;
-            p = z;
-        }
-        else {
-            y = z.esq;
+        No z = p.dir;
+        
+        // caso 2.2 (Direita-Esquerda / Rotação Dupla)
+        if (p.dir != null && p.dir.bal == -1) {
+            No y = z.esq;
             z.esq = y.dir;
             p.dir = y.esq;
             y.esq = p;
             y.dir = z;
-
-            if (y.bal == 1) p.bal = -1;
-            else p.bal = 0;
-
-            if (y.bal == -1) p.bal = 1;
-            else p.bal = 0;
+            
+            p.bal = altura(p.dir) - altura(p.esq);
+            z.bal = altura(z.dir) - altura(z.esq);
+            y.bal = altura(y.dir) - altura(y.esq);
             p = y;
+        } 
+        // caso 2.1 (Direita-Direita / Rotação Simples)
+        else {
+            p.dir = z.esq;
+            z.esq = p;
+            
+            p.bal = altura(p.dir) - altura(p.esq);
+            z.bal = altura(z.dir) - altura(z.esq);
+            p = z;
         }
-        p.bal = 0;
+        
         return p;
     }
-
-
 }
