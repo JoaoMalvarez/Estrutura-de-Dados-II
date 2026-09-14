@@ -249,4 +249,22 @@ public class Arvore {
     public void imprimeBarra() {
         imprimeBarra(raiz, 0);
     }
+
+/* Conta nos iterativo */
+
+    public int contaNoIt() {
+        if (raiz == null) return 0;
+        Pilha<No> pilha = new Pilha<>();
+        pilha.push(raiz);
+        int cont = 0;
+        
+        while(!pilha.isEmpty()) {
+            No atual = pilha.pop();
+            cont++;
+
+            if(atual.dir != null) pilha.push(atual.dir);
+            if(atual.esq != null) pilha.push(atual.esq);
+        }
+        return cont;
+    }    
 }
