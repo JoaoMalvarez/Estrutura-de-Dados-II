@@ -17,18 +17,4 @@ public class No {
         this.dir = null;
         this.bal = 1;
     }
-
-    public No(int v, No esq, No dir, int bal) {
-        this.dado = v;
-        this.esq = esq;
-        this.dir = dir;
-        this.bal = bal;
-    }
-
-    public No(int v, No esq, No dir) {
-        this.dado = v;
-        this.esq = esq;
-        this.dir = dir;
-        this.bal = 0;
-    }
 }

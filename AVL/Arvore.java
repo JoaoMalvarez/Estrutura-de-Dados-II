@@ -96,4 +96,62 @@ public class Arvore {
         
         return p;
     }
+
+/* exercicios 2, 5 e 6 */
+    // ==========================================
+    // EX 2: Maior número menor ou igual a n
+    // ==========================================
+    public No maiorN(int n, No r, No melhor) {
+        if (r == null) return melhor;
+        if (r.dado == n) {
+            return r; // Encontrou o valor exato, que é o máximo possível <= n
+        } else if (r.dado < n) {
+            // r.dado é menor que n (candidato válido). 
+            // Salvamos r como melhor e procuramos na direita por um valor ainda maior.
+            return maiorN(n, r.dir, r);
+        } else {
+            // r.dado é maior que n, não serve. Procuramos na esquerda.
+            return maiorN(n, r.esq, melhor);
+        }
+    }
+
+    public No maiorN(int n) {
+        return maiorN(n, raiz, null);
+    }
+
+    // ==========================================
+    // EX 5: Retornar o pai de um nó y
+    // ==========================================
+    public No pai(No y) {
+        if (raiz == null || y == null || raiz == y) return null;
+        
+        No q = raiz;
+        No aux = null;
+        
+        while (q != null && q != y) {
+            aux = q;
+            if (y.dado < q.dado) {
+                q = q.esq;
+            } else {
+                q = q.dir;
+            }
+        }
+        
+        // Se encontrou o nó, retorna o pai (aux); senão, o nó não está na árvore
+        if (q == y) return aux;
+        else return null;
+    }
+
+    // ==========================================
+    // EX 6: Soma de todas as folhas
+    // ==========================================
+    public int somaFolhas(No p) {
+        if (p == null) return 0;
+        if (p.esq == null && p.dir == null) return p.dado;
+        return somaFolhas(p.esq) + somaFolhas(p.dir);
+    }
+
+    public int somaFolhas() {
+        return somaFolhas(raiz);
+    }
 }
