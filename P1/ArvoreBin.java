@@ -150,6 +150,8 @@ public class ArvoreBin {
                 }
             }
         }
+        System.out.printf("Ultimo elemento não tem sucessor!");
+        return -1;
     }
             
 
