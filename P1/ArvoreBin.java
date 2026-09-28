@@ -132,6 +132,27 @@ public class ArvoreBin {
         }
     }
 
+    // In Ordem (e pega valor sucessor) - Iterativo
+    public int sInOrdem(int valor) {
+        NoB p = raiz;
+        bool achou = false;
+        Deque<NoB> pilha = new ArrayDeque<>();
+        while(p != null || !pilha.isEmpty()) {
+            if(p != null) {
+                pilha.push(p);
+                p = p.esq;
+            } else {
+                p = pilha.pop();
+                if (achou == true) return p.dado;
+                else {
+                if (p.chave == valor) achou = true;
+                p = p,dir
+                }
+            }
+        }
+    }
+            
+
     // Pós Ordem - Recursão (esq > dir > raiz)
     private void posOrdem(NoB p) {
         if(p != null) {
