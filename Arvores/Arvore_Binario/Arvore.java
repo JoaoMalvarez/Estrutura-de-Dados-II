@@ -236,7 +236,7 @@ public class Arvore {
         }
     }
 
-/* Implementar o diagrama de barras, para mostrar os elementos da árvore binária de busca */
+/* implementar o diagrama de barras, para mostrar os elementos da árvore binária de busca */
 
     private void imprimeBarra(No p, int nivel) {
         if (p == null) return;
@@ -250,7 +250,7 @@ public class Arvore {
         imprimeBarra(raiz, 0);
     }
 
-/* Conta nos iterativo */
+/* conta nos iterativo */
 
     public int contaNoIt() {
         if (raiz == null) return 0;
@@ -267,4 +267,35 @@ public class Arvore {
         }
         return cont;
     }    
+
+/* exercícios da Prova */
+
+/* conta no filho esquerdo */
+
+    public int contaNoEsq(No p) {
+        if(p == null) return 0;
+        int contador = contaNoEsq(p.esq) + contaNoEsq(p.dir);
+        if (p.esq != null) contador = contador + 1;
+        return contador;
+    }
+
+/* percurso in ordem que encontre o sucessor */
+
+    public No sucessor(int valor) {
+    Deque<No> pilha = new ArrayDeque<>();
+    No p = raiz;
+    boolean achou = false;
+
+    while (p != null || !pilha.isEmpty()) {
+        while (p != null) {
+            pilha.push(p);
+            p = p.esq;
+        }
+        p = pilha.pop();          
+        if (achou) return p;     
+        if (p.chave == valor) achou = true;
+        p = p.dir;                
+    }
+    return null;                  
+    }
 }
