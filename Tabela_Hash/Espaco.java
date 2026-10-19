@@ -5,18 +5,16 @@ Notas:
 ============================================ */
 
 public class Espaco {
-    private int chave; // chave de identificação 
-    private ListaEncadeada<Integer> dados; // dados satélites 
+    public int chave; // chave de identificação 
+    public ListaEncadeada<Integer> dados; // dados satélites 
 
     public Espaco(int chave) {
         this.chave = chave;
         /* Cria a lista encadeada de cada Espaço */
-        this.dados = new LinkedList<>(); 
+        this.dados = new ListaEncadeada<>(); 
     }
 
-    public adiciona(int chave) {
-        if(!dados.IsFull()) {
-
-        }
+    public void adiciona(Espaco x) {
+        dados.insertTail(x.chave);
     }
 }
