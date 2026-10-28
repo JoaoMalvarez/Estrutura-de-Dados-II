@@ -1,9 +1,9 @@
 # 🗺️ Mapas
 
 > Mapa é uma coleção de dados do tipo chave-valor (key-value)
-Recuperamos um valor com base na sua chave correspondente.
-- Cada chave é única.
-- Valores podem ser repetidos
+> Recuperamos um valor com base na sua chave correspondente.
+>- Cada chave é única.
+>- Valores podem ser repetidos
 
 Mapa também é conhecido por:
 - Tabela de dispersão (hash table)
