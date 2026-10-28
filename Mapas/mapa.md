@@ -39,16 +39,16 @@ Java oferece algumas estruturas (interfaces e classes);
 ---
 
 classe: **HashMap**
-    - Implementação: tabela hash
-    - Desempenho: Acesso (get), inserção (put), remoção (remove), checagem de existência (containsKey) ocorre em média em tempo O(1).
-    - Características:
-        - Não mantém ordem dos elementos;
-        - Permite chave null e múltiplos valores null.
-        - Métodos não sincronizados, não é thread safe;
-    - Principais operações:
-        - put(key, value): insere ou atualiza um par;
-        - get(key): recupera o valor associado;
-        - remove(key): remove o par correspondente;
+- Implementação: tabela hash
+- Desempenho: Acesso (get), inserção (put), remoção (remove), checagem de existência (containsKey) ocorre em média em tempo O(1).
+- Características:
+    - Não mantém ordem dos elementos;
+    - Permite chave null e múltiplos valores null.
+    - Métodos não sincronizados, não é thread safe;
+- Principais operações:
+    - put(key, value): insere ou atualiza um par;
+    - get(key): recupera o valor associado;
+    - remove(key): remove o par correspondente;
 
 ---
 
@@ -68,16 +68,16 @@ import java.util.HashMap;
 ---
 
 classe: **LinkedHashMap**
-    - Implementaçãao: tabela hash
-    - Características:
-        - Utiliza lista duplamente encadeada para manter a ordem de inserçãao dos elementos.
-        - Pode ser configurado para manter a ordem de acesso (elementos mais recentemente acessados vão para o final), útil para implementar cache LRU.
-        - Métodos não sincronizados, não é thread safe.
-    - Principais operações:
-        - put(key, value): insere ou atualiza um par;
-        - get(key): recupera o valor associado;
-        - remove(key): remove o par correspondente;
-        - A iteração ( for (var entry: map.entrySet()) ) segue a ordemdefinida.
+- Implementaçãao: tabela hash
+- Características:
+    - Utiliza lista duplamente encadeada para manter a ordem de inserçãao dos elementos.
+    - Pode ser configurado para manter a ordem de acesso (elementos mais recentemente acessados vão para o final), útil para implementar cache LRU.
+    - Métodos não sincronizados, não é thread safe.
+- Principais operações:
+    - put(key, value): insere ou atualiza um par;
+    - get(key): recupera o valor associado;
+    - remove(key): remove o par correspondente;
+    - A iteração ( for (var entry: map.entrySet()) ) segue a ordemdefinida.
 
 --- 
 
@@ -115,12 +115,12 @@ public class CacheLRU<K, V> extends LinkedHashMap<K, V> {
 ---
 
 classe: **TreeMap**
-    - As chaves são mantidas em ordem crescente;
-    - Implementção: árvore rubro-negra
-    - Desempenho:
-        - Inserção (put): O(log n)
-        - Busca (get): O(log n)
-        - Remoção (remove): O(log n)
+- As chaves são mantidas em ordem crescente;
+- Implementção: árvore rubro-negra
+- Desempenho:
+    - Inserção (put): O(log n)
+    - Busca (get): O(log n)
+    - Remoção (remove): O(log n)
 
 ---
 
