@@ -9,7 +9,7 @@
 Mapa também é conhecido por:
 - Tabela de dispersão (hash table)
 - Dicionário (dictionary)
-- Vetor associativo (associative array )
+- Vetor associativo (associative array)
 - Coleção chave-valor (key-value collection)
 - Tabela de símbolos (symbol table)
 > Conceito é o mesmo: Estrutura que associa chaves a valores.
@@ -31,6 +31,8 @@ Java oferece algumas estruturas (interfaces e classes);
 - Ao implementar a interface é como assinar o contrato e com isso, assume-se a obrigação de realizar determinadas tarefas (faz parte do contrato);
 - Essas tarefas são as operações (métodos) previstos no contrato, ou seja, declarados na interface (mas não implemenadas nela).
 
+---
+---
 ---
 
 # HashMap
