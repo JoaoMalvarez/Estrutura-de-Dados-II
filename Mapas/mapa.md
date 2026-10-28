@@ -35,7 +35,7 @@ Java oferece algumas estruturas (interfaces e classes);
 ---
 ---
 
-# HashMap
+# 📍​HashMap
 
 > O HashMap é uma implementação da interface Map que armazena (chave, valor) e permite acesso rápido aos valores por meio das chaves.
 
@@ -64,7 +64,7 @@ import java.util.HashMap;
 
 ---
 
-# LinkedHashMap
+# ​🖇️​LinkedHashMap
 
 > O LinkedHashMap é uma implementação da interface Map que combina as características de um HashMap e de uma lista duplamente encadeada.
 
@@ -111,7 +111,7 @@ public class CacheLRU<K, V> extends LinkedHashMap<K, V> {
 
 ---
 
-# TreeMap
+# ​🌳​TreeMap
 
 > O TreeMap é uma implementaçãao da interface Map do Java que armazena os elementos ordenados por suas chaves, utilizando uma árvore de busca balanceada (Red-Black Tree) como estrutura interna.
 
