@@ -6,11 +6,11 @@ Recuperamos um valor com base na sua chave correspondente.
 - Valores podem ser repetidos
 
 Mapa também é conhecido por:
-• Tabela de dispersão (hash table)
-• Dicionário (dictionary)
-• Vetor associativo (associative array )
-• Coleção chave-valor (key-value collection)
-• Tabela de símbolos (symbol table)
+- Tabela de dispersão (hash table)
+- Dicionário (dictionary)
+- Vetor associativo (associative array )
+- Coleção chave-valor (key-value collection)
+- Tabela de símbolos (symbol table)
 > Conceito é o mesmo: Estrutura que associa chaves a valores.
 
 ## Mapa em Java
@@ -39,9 +39,9 @@ Java oferece algumas estruturas (interfaces e classes);
 ---
 
 classe: **HashMap**
-    - Implementção: tabela hash
-    - Desempenho: Acesso (get), inser¸c˜ao (put), remoção (remove), checagem de existência (containsKey) ocorre em média em tempo O(1).
-    - Características
+    - Implementação: tabela hash
+    - Desempenho: Acesso (get), inserção (put), remoção (remove), checagem de existência (containsKey) ocorre em média em tempo O(1).
+    - Características:
         - Não mantém ordem dos elementos;
         - Permite chave null e múltiplos valores null.
         - Métodos não sincronizados, não é thread safe;
@@ -78,6 +78,7 @@ classe: **LinkedHashMap**
         - get(key): recupera o valor associado;
         - remove(key): remove o par correspondente;
         - A iteração ( for (var entry: map.entrySet()) ) segue a ordemdefinida.
+
 --- 
 
 ### Imports
@@ -130,7 +131,7 @@ import java.util.Map;
 
 ---
 
-# **HashMap** vs **LinkedHashMap** vs **TreeMap**
+# HashMap vs LinkedHashMap vs TreeMap
 
 Pontos | *HashMap* | *LinkedHashMap* | *TreeMap* |
 --- | --- | --- | --- |
