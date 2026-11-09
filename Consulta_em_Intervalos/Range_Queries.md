@@ -83,81 +83,18 @@ No caso em que a = 0, soma(a, b) = P[b].
 
 E possível generalizar para matrizes de dimensões maiores.
 
-<table style="border-collapse: collapse; text-align: center; font-family: sans-serif;">
-  <!-- Linha 0 -->
-  <tr>
-    <td style="border: 1px solid #888; width: 35px; height: 35px;"></td>
-    <td style="border: 1px solid #888; width: 35px; height: 35px;"></td>
-    <td style="border: 1px solid #888; width: 35px; height: 35px;"><i>D</i></td>
-    <td style="border: 1px solid #888; width: 35px; height: 35px;"></td>
-    <td style="border: 1px solid #888; width: 35px; height: 35px;"></td>
-    <td style="border: 1px solid #888; width: 35px; height: 35px;"><i>C</i></td>
-    <td style="border: 1px solid #888; width: 35px; height: 35px;"></td>
-    <td style="border: 1px solid #888; width: 35px; height: 35px;"></td>
-    <td style="border: 1px solid #888; width: 35px; height: 35px;"></td>
-  </tr>
-  <!-- Linha 1 (Início da área sombreada) -->
-  <tr>
-    <td style="border: 1px solid #888; height: 35px;"></td>
-    <td style="border: 1px solid #888;"></td>
-    <td style="border: 1px solid #888; background-color: #b0b0b0;"></td>
-    <td style="border: 1px solid #888; background-color: #b0b0b0;"></td>
-    <td style="border: 1px solid #888; background-color: #b0b0b0;"></td>
-    <td style="border: 1px solid #888; background-color: #b0b0b0;"></td>
-    <td style="border: 1px solid #888;"></td>
-    <td style="border: 1px solid #888;"></td>
-    <td style="border: 1px solid #888;"></td>
-  </tr>
-  <!-- Linha 2 -->
-  <tr>
-    <td style="border: 1px solid #888; height: 35px;"></td>
-    <td style="border: 1px solid #888;"></td>
-    <td style="border: 1px solid #888; background-color: #b0b0b0;"></td>
-    <td style="border: 1px solid #888; background-color: #b0b0b0;"></td>
-    <td style="border: 1px solid #888; background-color: #b0b0b0;"></td>
-    <td style="border: 1px solid #888; background-color: #b0b0b0;"></td>
-    <td style="border: 1px solid #888;"></td>
-    <td style="border: 1px solid #888;"></td>
-    <td style="border: 1px solid #888;"></td>
-  </tr>
-  <!-- Linha 3 (Fim da área sombreada com B e A) -->
-  <tr>
-    <td style="border: 1px solid #888; height: 35px;"></td>
-    <td style="border: 1px solid #888;"></td>
-    <td style="border: 1px solid #888; background-color: #b0b0b0;"><i>B</i></td>
-    <td style="border: 1px solid #888; background-color: #b0b0b0;"></td>
-    <td style="border: 1px solid #888; background-color: #b0b0b0;"></td>
-    <td style="border: 1px solid #888; background-color: #b0b0b0;"><i>A</i></td>
-    <td style="border: 1px solid #888;"></td>
-    <td style="border: 1px solid #888;"></td>
-    <td style="border: 1px solid #888;"></td>
-  </tr>
-  <!-- Linha 4 -->
-  <tr>
-    <td style="border: 1px solid #888; height: 35px;"></td>
-    <td style="border: 1px solid #888;"></td>
-    <td style="border: 1px solid #888;"></td>
-    <td style="border: 1px solid #888;"></td>
-    <td style="border: 1px solid #888;"></td>
-    <td style="border: 1px solid #888;"></td>
-    <td style="border: 1px solid #888;"></td>
-    <td style="border: 1px solid #888;"></td>
-    <td style="border: 1px solid #888;"></td>
-  </tr>
-  <!-- Linha 5 -->
-  <tr>
-    <td style="border: 1px solid #888; height: 35px;"></td>
-    <td style="border: 1px solid #888;"></td>
-    <td style="border: 1px solid #888;"></td>
-    <td style="border: 1px solid #888;"></td>
-    <td style="border: 1px solid #888;"></td>
-    <td style="border: 1px solid #888;"></td>
-    <td style="border: 1px solid #888;"></td>
-    <td style="border: 1px solid #888;"></td>
-    <td style="border: 1px solid #888;"></td>
-  </tr>
-</table>
-
+<<<<<<< HEAD
+```mermaid
+flowchart TD
+    subgraph Grid
+        D["D"] --- C["C"]
+        B["B"] --- A["A"]
+    end
+    style A fill:#aaa,stroke:#333
+    style B fill:#fff,stroke:#333
+    style C fill:#fff,stroke:#333
+    style D fill:#fff,stroke:#333
+```
 > Podemos computar a soma de prefixos para calcular a soma em qualquer matriz retangular.
 
 A soma da região cinza pode ser calculada usando a fórmula:
