@@ -85,9 +85,9 @@ E possível generalizar para matrizes de dimensões maiores.
 
 <table>
   <tr><td></td><td></td><td><i>D</i></td><td></td><td></td><td><i>C</i></td><td></td><td></td><td></td></tr>
-  <tr><td></td><td></td><td style="background:grey;"></td><td style="background:grey;"></td><td style="background:grey;"></td><td style="background:grey;"></td><td></td><td></td><td></td></tr>
-  <tr><td></td><td></td><td style="background:grey;"></td><td style="background:grey;"></td><td style="background:grey;"></td><td style="background:grey;"></td><td></td><td></td><td></td></tr>
-  <tr><td></td><td></td><td><i>B</i></td><td style="background:grey;"></td><td style="background:grey;"></td><td><i>A</i></td><td></td><td></td><td></td></tr>
+  <tr><td></td><td></td><td style="background:#ccc;"></td><td style="background:#ccc;"></td><td style="background:#ccc;"></td><td style="background:#ccc;"></td><td></td><td></td><td></td></tr>
+  <tr><td></td><td></td><td style="background:#ccc;"></td><td style="background:#ccc;"></td><td style="background:#ccc;"></td><td style="background:#ccc;"></td><td></td><td></td><td></td></tr>
+  <tr><td></td><td></td><td><i>B</i></td><td style="background:#ccc;"></td><td style="background:#ccc;"></td><td><i>A</i></td><td></td><td></td><td></td></tr>
   <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
   <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
 </table>
@@ -185,19 +185,16 @@ O intervalo [a, b] é representado pela união de intervalos [a, a + k − 1] e 
 
 Considere o intervalo [1, 6]:
 
-**Vetor 1:**
 | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 |
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 | 1 | **3** | **8** | **4** | **6** | **1** | **4** | 2 |
 
 O tamanho do intervalo é 6 e a maior potência de 2 que não excede 6 é 4.
 
-**Vetor 2:**
 | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 |
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 | 1 | **3** | **8** | **4** | **6** | 1 | 4 | 2 |
 
-**Vetor 3:**
 | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 |
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 | 1 | 3 | 8 | **4** | **6** | **1** | **4** | 2 |
