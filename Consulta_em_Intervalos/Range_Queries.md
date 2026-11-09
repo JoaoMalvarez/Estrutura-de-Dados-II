@@ -83,18 +83,14 @@ No caso em que a = 0, soma(a, b) = P[b].
 
 E possível generalizar para matrizes de dimensões maiores.
 
-<<<<<<< HEAD
-```mermaid
-flowchart TD
-    subgraph Grid
-        D["D"] --- C["C"]
-        B["B"] --- A["A"]
-    end
-    style A fill:#aaa,stroke:#333
-    style B fill:#fff,stroke:#333
-    style C fill:#fff,stroke:#333
-    style D fill:#fff,stroke:#333
-```
+| | | *D* | | | *C* | | | |
+|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+| | | | █ | █ | █ | █ | | |
+| | | | █ | █ | █ | █ | | |
+| | | *B* | █ | █ | █ | **A** | | |
+| | | | | | | | | |
+| | | | | | | | | |
+
 > Podemos computar a soma de prefixos para calcular a soma em qualquer matriz retangular.
 
 A soma da região cinza pode ser calculada usando a fórmula:
