@@ -13,7 +13,9 @@ A árvore de Fenwick é uma árvore represenetada em um vetor iniciando no índi
 
 Seja p(k) o valor da maior potência de 2 que divide k.
 Armazenamos uma árvore binária indexada como um vetor tal que:
+
 ```tree[k] = sum(k − p(k) + 1, k)```
+
 cada posiçãao k contém somas de valores em um intervalo do vetor original cujo tamanho é p(k) e termina na posição k.
 
 ---
@@ -58,7 +60,9 @@ Para o intervalo [1, 7] temos os intervalos:
 ---
 
 Para calcular o valor da soma(a, b) onde a > 1, podemos usar o mesmo método usado em vetor de soma de prefixos. 
+
 ```soma(a, b) = soma(1, b) − soma(1, a − 1)```
+
 O tempo de execução é O(lg n).
 
 ---
@@ -76,7 +80,9 @@ Quando o vetor original é atualizado, temos que realiza a atualização da árv
 ## Implementação
 
 As operações de uma árvore binária indexada (binary indexed tree) podem ser implementadas usando operaçõoes de bits. Contudo, podemos calcular o valor de p(k) usando a fórmula:
+
 ```p(k) = k& − k.```
+
 Esta operação é um truque de manipulação de bits que serve para isolar o bit menos significativo (Least Significant Bit, ou LSB). O resultando é uma potência de 2 que divide k.
 
 ### Cálculo da soma no intervalo
