@@ -36,74 +36,7 @@ A árvore binária indexada correspondente á a seguinte:
 
 A figura a seguir mostra como cada valor na árvore binária indexada corresponde ao intervalo no vetor original.
 
-<table style="border-collapse: collapse; text-align: center; font-family: sans-serif; margin: auto;">
-  <!-- Índices superiores -->
-  <tr style="font-weight: bold; color: #000;">
-    <td style="width: 40px;">1</td>
-    <td style="width: 40px;">2</td>
-    <td style="width: 40px;">3</td>
-    <td style="width: 40px;">4</td>
-    <td style="width: 40px;">5</td>
-    <td style="width: 40px;">6</td>
-    <td style="width: 40px;">7</td>
-    <td style="width: 40px;">8</td>
-  </tr>
-  
-  <!-- Array Principal -->
-  <tr>
-    <td style="border: 1px solid #000; padding: 10px; font-size: 16px;">1</td>
-    <td style="border: 1px solid #000; padding: 10px; font-size: 16px;">4</td>
-    <td style="border: 1px solid #000; padding: 10px; font-size: 16px;">4</td>
-    <td style="border: 1px solid #000; padding: 10px; font-size: 16px;">16</td>
-    <td style="border: 1px solid #000; padding: 10px; font-size: 16px;">6</td>
-    <td style="border: 1px solid #000; padding: 10px; font-size: 16px;">7</td>
-    <td style="border: 1px solid #000; padding: 10px; font-size: 16px;">4</td>
-    <td style="border: 1px solid #000; padding: 10px; font-size: 16px;">29</td>
-  </tr>
-  
-  <!-- Setas apontando para cima -->
-  <tr style="font-size: 14px; line-height: 1;">
-    <td>↑</td>
-    <td>↑</td>
-    <td>↑</td>
-    <td>↑</td>
-    <td>↑</td>
-    <td>↑</td>
-    <td>↑</td>
-    <td>↑</td>
-  </tr>
-  
-  <!-- Nível 1: Blocos de tamanho 1 -->
-  <tr>
-    <td style="border: 1px solid #000; height: 18px;"></td>
-    <td></td>
-    <td style="border: 1px solid #000; height: 18px;"></td>
-    <td></td>
-    <td style="border: 1px solid #000; height: 18px;"></td>
-    <td></td>
-    <td style="border: 1px solid #000; height: 18px;"></td>
-    <td></td>
-  </tr>
-  
-  <!-- Nível 2: Blocos de tamanho 2 -->
-  <tr>
-    <td colspan="2" style="border: 1px solid #000; height: 18px;"></td>
-    <td colspan="2"></td>
-    <td colspan="2" style="border: 1px solid #000; height: 18px;"></td>
-    <td colspan="2"></td>
-  </tr>
-  
-  <!-- Nível 3: Blocos de tamanho 4 -->
-  <tr>
-    <td colspan="4" style="border: 1px solid #000; height: 18px;"></td>
-    <td colspan="4"></td>
-  </tr>
-  
-  <!-- Nível 4: Bloco completo (Tamanho 8) -->
-  <tr>
-    <td colspan="8" style="border: 1px solid #000; height: 18px;"></td>
-  </tr>
-</table>
+![Figura 1](t1.png)
 
 ---
 
@@ -115,9 +48,28 @@ Com a árvore binária indexada:
 
 ---
 
+Para o intervalo [1, 7] temos os intervalos:
+
+![Figura 2](t2.png)   
+
+> Podemos calcular o valor da soma(1, 7): 
+> soma(1, 7) = soma(1, 4)+soma(5, 6)+soma(7, 7) = 16 + 4 + 6 = 27
+
+---
+
 Para calcular o valor da soma(a, b) onde a > 1, podemos usar o mesmo método usado em vetor de soma de prefixos. 
 ```soma(a, b) = soma(1, b) − soma(1, a − 1)```
 O tempo de execução é O(lg n).
+
+---
+
+### Atualização do vetor original
+
+Quando o vetor original é atualizado, temos que realiza a atualização da árvore binária indexada.
+
+> Exemplo: Ao alterar a posição 3, temos que alterar as seguintes posições.
+
+![Figura 3](t3.png)
 
 ---
 
@@ -159,3 +111,60 @@ void aumenta(int k, int x) {
 > Consumo de tempo: O(lg n)
 
 ---
+
+# Arvore de Segmentos
+
+Uma árvore de segmentos é uma estrutura de dados que suporta duas operações:
+- processamento de consultas em intervalos (soma, mínimo, máximo e outros);
+- atualiza¸c˜ao de valores no intervalo.
+
+Comparado com a árvore de Fenwick, a árvore de segmentos é uma estrutura de dados mais geral.
+
+---
+
+## Exemplo
+
+Como exemplo, assuma um vetor abaixo de tamanho potência de 2 e com o primeiro índice em zero.
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 |
+|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+| 5 | 8 | 6 | 3 | 2 | 7 | 2 | 6 |
+
+Vamos construir a árvore de segmentos usando o operador de soma.
+
+![Árvore de Segmentos](a1.png)
+
+Cada nó interno corresponde a um intervalo de tamanho potência de 2, e pode ser calculado como a soma de valores dos nós da esquerda e da direita.
+
+Perceba que qualquer intervalo [a, b] pode ser decomposto em O(lg n) intervalos cujos valores ficam armazenados nos nós da árvore.
+
+---
+
+## Implementação
+
+A função a seguir constrói a árvore de segmentos.
+```
+void constroi(int []v, int []tree) {
+  for(int i = 0; i < n; i++)
+    tree[i+n] = v[i];
+
+  for(int i = n-1; i >= 1; i--)
+    tree[i] = tree[2*i] + tree[2*i+1];
+}
+```
+> Consumo de tempo: O(n)
+
+A função a seguir calcula o valor de soma no intervalo [a, b].
+```
+int soma(int a, int b) {
+  a += n; b += n;
+  int s = 0;
+  while (a <= b){
+    if (a%2 == 1) s += tree[a++];
+    if (b%2 == 0) s += tree[b--];
+    a/=2; b/=2;
+  }
+  return s;
+}
+```
+> Consumo de tempo: O(lg n)
