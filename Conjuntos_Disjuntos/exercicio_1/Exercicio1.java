@@ -12,17 +12,52 @@ public class Exercicio1 {
     private int[] parent;
     private int[] size;
     
-    public Exercicio1(int x) {
-        this.parent = new int[n]; 
+    public Exercicio1(int n) {
+        this.parent = new int[n + 1]; 
         // usuários 
-        this.size = new int[n];
+        this.size = new int[n + 1];
 
         // cada usuário começa no próprio grupo
-        for(int i = 0; i < n; i++) {
+        for(int i = 0; i <= n; i++) {
             parent[i] = i;
-            size[i] = i;
+            size[i] = 1;
         }
     }
 
-    public int find()
+    public int find(int x) {
+        if(parent[x] != x) parent[x] = find(parent[x]);
+        return parent[x];
+    }
+
+    public void makeSet(int x) {
+        parent[x] = x;
+        size[x] = 1;
+    }
+
+    public void union(int a, int b) {
+        a = find(a);
+        b = find(b);
+        if (a == b) return;
+        if (size[a] < size[b]) {
+            int temp = a;
+            a = b;
+            b = temp;
+        }
+        parent[b] = a;
+        size[a] += size[b];
+    }
+
+    public void same(int a, int b) {
+        a = find(a);
+        b = find(b);
+        if(a == b) {
+            System.out.println("SIM");
+            return;
+        }
+        System.out.println("NAO");
+    }
+
+    public int size(int a) {
+        return size[find(a)];
+    }
 }

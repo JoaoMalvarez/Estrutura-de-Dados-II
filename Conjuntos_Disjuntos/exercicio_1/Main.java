@@ -1,43 +1,35 @@
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.StringTokenizer;
+import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) throws IOException {
-        // Com argumento: lê do arquivo (java Main entrada.txt)
-        // Sem argumento: lê da entrada padrão (teclado / redirecionamento)
-        BufferedReader br = (args.length > 0)
-                ? new BufferedReader(new FileReader(args[0]))
-                : new BufferedReader(new InputStreamReader(System.in));
+    public static void main(String[] args) {
+        // Passo 1: ler a entrada:
+        Scanner sc = new Scanner(System.in);
 
-        StringTokenizer st = new StringTokenizer(br.readLine());
-        int n = Integer.parseInt(st.nextToken());
-        int q = Integer.parseInt(st.nextToken());
+        // Passo 2: ler a linha 1 (N e Q) e criar o objeto:
+        int n = sc.nextInt();
+        int q = sc.nextInt();
+        Exercicio1 grupos = new Exercicio1(n);
 
-        UnionFind uf = new UnionFind(n);
-        StringBuilder saida = new StringBuilder();
-
-        for (int i = 0; i < q; i++) {
-            st = new StringTokenizer(br.readLine());
-            String cmd = st.nextToken();
-            int a = Integer.parseInt(st.nextToken());
-
-            switch (cmd) {
-                case "UNION":
-                    uf.union(a, Integer.parseInt(st.nextToken()));
-                    break;
-                case "SAME":
-                    int b = Integer.parseInt(st.nextToken());
-                    saida.append(uf.same(a, b) ? "SIM" : "NAO").append('\n');
-                    break;
-                case "SIZE":
-                    saida.append(uf.size(a)).append('\n');
-                    break;
+        // Passo 3: repetir Q vezes:
+        for(int i = 0; i < q; i++) {
+            String comando = sc.next();
+            // se cmd for "UNION": leia dois números e chame union
+            if(comando.equals("UNION")) {
+                int a = sc.nextInt();
+                int b = sc.nextInt();
+                grupos.union(a, b);
+            }
+            // se cmd for "SAME": leia dois números e chame same
+            else if(comando.equals("SAME")) {
+                int a = sc.nextInt();
+                int b = sc.nextInt();
+                grupos.same(a, b);
+            }
+            // se cmd for "SIZE": leia um número e imprima size
+            else if(comando.equals("SIZE")) {
+                int a = sc.nextInt();
+                System.out.println(grupos.size(a));
             }
         }
-        br.close();
-        System.out.print(saida);
     }
 }
