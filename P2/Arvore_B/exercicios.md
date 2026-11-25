@@ -13,21 +13,29 @@
 ## 3. Considere uma árvore B de ordem 2 inicialmente vazia. Insira as chaves na seguinte ordem: 10, 20, 5, 6, 12, 30, 7, 17. Desenhe a árvore B resultante após cada inserção, mostrando onde ocorrem divisões de nós.
 arvore:
 
+```
               [ 10 | 20 ]
 
 [ 5 | 6 | 7 ]    [ 12 | 17 ]      [ 30 ]
+```
 
 > Passo a passo: 10, 20 e 5 sao inseridos na raiz, após tentar adicionar o 6, o nó é dividido, com o médio (sendo 10) ficando na raiz e separando os outros dois em outros 2 nos, e depois adicionando o 6, na qual ficou no nó '5', após inserir 6, 12, 30 e 7 sem problemas, ambos os nós ficaram cheios, e ao adicionar o 17, foi dividida novamente, com o intermediário (sendo 20) subindo para o nó pai e criando mais um nó filho, na qual seria os numeros entre os dois números do nó pai, com 12 e 17 ficandoo nesse e o 30 ficando no superior a 20.
 ---
 
 ## 4. Dada a árvore B de ordem 2 construída com as chaves: 10, 20, 30, 40, 50, 60, 70. Remova as chaves 30 e 50, mostrando passo a passo como ficam os nós após cada remoção.
 arvore antes:
+
+```
     [ 20 | 40 ]
 [ 10 ] [ 30 ] [ 50 | 60 | 70 ]
+```
 
 arvore depois:
+
+```
     [ 20, 60 ]
 [ 10 ] [ 40 ] [ 70 ]
+```
 
 > Antes de remover ele vai ver se ele é o ultimo elemento, como o '12' é o ultimo elemento do seu nó ele procura para ver se alguem pode se emprestar para ficar no lugar dele, primeiro olha a esquerda, mas o '10' também é o único elemento, então olha para a direita, e vê se pode remover o mais proximo, e pode, o '50' não é o ultimo elemento desse nó, ainda tem o '60' e o '70', então pegamos ele emprestado, ele sobe e pega o lugar do '40', e o '40' pega o lugar do 30, e o 30 é apagado. Agora para remover o '50': vemos se podemos substituir algum valor: primeiro vemos o mais próximo entre o '20' e o '50', que tem o '40' sozinho, então não, depois vemos os superiores a '50', e temos 2 valores, então podemos remover o '60' de lá, o '60' sobe e substitui o valor do '50' e ele é apagado. 
 ---
