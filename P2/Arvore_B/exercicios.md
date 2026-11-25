@@ -12,7 +12,9 @@
 
 ## 3. Considere uma árvore B de ordem 2 inicialmente vazia. Insira as chaves na seguinte ordem: 10, 20, 5, 6, 12, 30, 7, 17. Desenhe a árvore B resultante após cada inserção, mostrando onde ocorrem divisões de nós.
 arvore:
+
               [ 10 | 20 ]
+
 [ 5 | 6 | 7 ] [ 12 | 17 ] [ 30 ]
 
 > Passo a passo: 10, 20 e 5 sao inseridos na raiz, após tentar adicionar o 6, o nó é dividido, com o médio (sendo 10) ficando na raiz e separando os outros dois em outros 2 nos, e depois adicionando o 6, na qual ficou no nó '5', após inserir 6, 12, 30 e 7 sem problemas, ambos os nós ficaram cheios, e ao adicionar o 17, foi dividida novamente, com o intermediário (sendo 20) subindo para o nó pai e criando mais um nó filho, na qual seria os numeros entre os dois números do nó pai, com 12 e 17 ficandoo nesse e o 30 ficando no superior a 20.
