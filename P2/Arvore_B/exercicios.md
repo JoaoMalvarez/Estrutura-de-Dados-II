@@ -80,19 +80,33 @@ Algoritmo:
 
 ## 6. Suponha uma árvore B de ordem 2 com 1024 chaves. Qual é a altura mínima e máxima possível da árvore? (Lembre-se: cada nó pode ter entre d e 2d chaves, onde d é a ordem.)
 > Mínimo: para minimizar a altura, cada nó tem que ter o número máximo de dados dentro dele, ou seja: 
+
 h = 0 : 1(nó) x 4(chaves) = 4 chaves
+
 h = 1 : (4 + 1) x 4 = 20 + 4 = 24 chaves
+
 h = 2 : (24 + 1) x 4 = 100 + 24 = 124 chaves
+
 h = 3 : (124 + 1) x 4 = 500 + 124 = 624 chaves
+
 h = 4 : (624 + 1) x 4 = 2500 + 624 = 3124 chaves 
+
 > logo altura mínima = 4
 
 > Máximo: para maximizar a altura, cada nó tem que ter o número minimo de dados dentro dele, ou seja:
+
 h = 0 : 1(nó) x 1(chave) = 1 chave
+
 h = 1 : 2 x 2 = 4 + 1 = 5 chaves
+
 h = 2 : 6 x 2 = 12 + 5 = 17 chaves
+
 h = 3 : 18 x 2 = 36 + 17 = 53 chaves
+
 h = 4 : 54 x 2 = 108 + 53 = 161 chaves
+
 h = 5 : 162 x 2 = 324 + 161 = 485 chaves
+
 h = 6 : 486 x 2 = 972 + 485 = 1457 chaves
+
 > logo altura máxima = 6
